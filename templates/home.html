@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="refresh" content="2"> -->
+  <link rel="stylesheet" href="static\css\home.css">
+  <title>Document</title>
+</head>
+<body>
+
+
+<div id="Signup_form">
+<h1>User Signup</h1>
+<form action="/" method="post" onsubmit="return this.password.value === this.reenter_password.value;">
+
+  <input type="text" name="usertype" value="end_user" required hidden><br>
+  <input type="text" name="username" placeholder="Username" required><br>
+  <input type="email" name="email" placeholder="Email" required><br>
+  <input type="password" name="password" placeholder="Password" required><br>
+  <input type="password" name="reenter_password" placeholder="Reenter Password" required 
+         oninput="this.setCustomValidity(this.value !== this.form.password.value ? 'Passwords do not match.' : '')"><br>
+  <input type="submit" value="Signup">
+</form>
+</div>
+
+
+
+
+
+</body>
+</html>
