@@ -8,3 +8,12 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     display: inline-block;
 }
+
+#search_bar{
+    width: 400px;
+    padding: 6px;
+    padding-left: 16px;
+    border-radius: 27px;
+    border-style: solid;
+    border-color: slategray;
+}

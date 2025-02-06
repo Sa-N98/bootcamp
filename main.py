@@ -57,14 +57,6 @@ def about():
     return render_template('about.html')
 
 
-
-
-
-
-
-
-
-
 @app.route('/user_dashbord/<USERNAME>')  
 def user_dashbord(USERNAME):
     movie_data = movie.query.all()

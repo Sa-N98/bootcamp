@@ -9,7 +9,12 @@
 <body>
 
     <h1>Welcome User {{ userName }}</h1>
-    
+
+    <form action="/search" method="post">
+        <input type="text" name="search" placeholder="Search" id="search_bar">
+        <input type="submit" value="Find">
+    </form>
+
     {% for movie in movieData %}
      <a href="/movie_details/{{ movie.id }}">  <div class="card" style="background-image: url('{{ movie.poster_url }}');"></div> </a>
     {% endfor %}
