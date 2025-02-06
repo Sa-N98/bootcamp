@@ -57,9 +57,32 @@ def about():
     return render_template('about.html')
 
 
+
+
+
+
+
+
+
+
 @app.route('/user_dashbord')  
 def user_dashbord():
-    return render_template('user_dashbord.html')
+    movie_data = movie.query.all()
+    return render_template('user_dashbord.html', movieData = movie_data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
