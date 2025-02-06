@@ -8,7 +8,11 @@
 </head>
 <body>
 
-    {{  movieData }}
-    <div class="card"></div>
+    <h1>Welcome User {{ userName }}</h1>
+    
+    {% for movie in movieData %}
+     <div class="card" style="background-image: url('{{ movie.poster_url }}');"></div>
+    {% endfor %}
+
 </body>
 </html>

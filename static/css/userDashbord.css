@@ -3,6 +3,7 @@
     height: 300px;
     background-color: rgb(118, 44, 44);
     border-radius: 15px;
-    background-image: url('https://images-cdn.ubuy.co.in/6356a05daebb735896567139-premiumprints-marvel-iron-man-original.jpg');
     background-size: cover;
+    margin: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
