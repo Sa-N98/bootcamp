@@ -6,7 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    {{ movieData.title }}
-    {{ movieData.current_theaters }}
+    {{ movieData.title }}<br>
+
+
+    {% for theater in movieData.current_theaters %}
+        {{ theater.name }} {{ theater.location }}<br>
+    {% endfor %}
 </body>
 </html>
