@@ -16,12 +16,17 @@ class movie(db.Model):
     __tablename__ = 'movie'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    current_theaters = db.relationship('theaters', secondary="movie_theater") 
     title = db.Column(db.String)
     poster_url = db.Column(db.String)
     genre = db.Column(db.String)
     rating = db.Column(db.Float)
+    
 
-
+class movie_theater(db.Model):
+    __tablename__ = 'movie_theater'
+    m_id=db.Column(db.Integer, db.ForeignKey('movie.id'), primary_key=True)
+    t_id=db.Column(db.Integer, db.ForeignKey('theaters.id'), primary_key=True)
 
 class theaters(db.Model):
     __tablename__ = 'theaters'

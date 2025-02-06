@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static\css\userDashbord.css">
+    <link rel="stylesheet" href="\static\css\userDashbord.css">
     <title>Document</title>
 </head>
 <body>
@@ -11,7 +11,7 @@
     <h1>Welcome User {{ userName }}</h1>
     
     {% for movie in movieData %}
-     <div class="card" style="background-image: url('{{ movie.poster_url }}');"></div>
+     <a href="/movie_details/{{ movie.id }}">  <div class="card" style="background-image: url('{{ movie.poster_url }}');"></div> </a>
     {% endfor %}
 
 </body>

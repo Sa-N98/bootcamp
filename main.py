@@ -44,7 +44,7 @@ def login():
 
         if check_user != None:
            if check_user.password == user_password:
-                return redirect(url_for('user_dashbord'))
+                return redirect(url_for('user_dashbord', USERNAME = check_user.username ))
            else:
                 return "Invalid password"
         else:
@@ -65,10 +65,18 @@ def about():
 
 
 
-@app.route('/user_dashbord')  
-def user_dashbord():
+@app.route('/user_dashbord/<USERNAME>')  
+def user_dashbord(USERNAME):
     movie_data = movie.query.all()
-    return render_template('user_dashbord.html', movieData = movie_data)
+    return render_template('user_dashbord.html', movieData = movie_data, userName = USERNAME)
+
+
+
+
+@app.route('/movie_details/<MOVIE_ID>')
+def movie_details(MOVIE_ID):
+    movie_data = movie.query.filter(movie.id == MOVIE_ID).first()
+    return render_template('movie_details.html', movieData = movie_data)
 
 
 
