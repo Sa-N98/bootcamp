@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-
+    <a href="/userbooking/{{userID}}" style="float: right; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">My Bookings</a>
     <h1>Welcome User {{ userName }}</h1>
 
     <form action="/search" method="post">
@@ -16,7 +16,7 @@
     </form>
 
     {% for movie in movieData %}
-     <a href="/movie_details/{{ movie.id }}">  <div class="card" style="background-image: url('{{ movie.poster_url }}');"></div> </a>
+     <a href="/movie_details//{{userID}}/{{ movie.id }}">  <div class="card" style="background-image: url({{movie.poster_url}});"></div> </a>
     {% endfor %}
 
 </body>

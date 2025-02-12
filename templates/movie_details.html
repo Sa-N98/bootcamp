@@ -6,11 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    {{ movieData.title }}<br>
-
-
-    {% for theater in movieData.current_theaters %}
-        {{ theater.name }} {{ theater.location }}<br>
-    {% endfor %}
+    <h1 style="font-size: 55px;">{{ movieData.title }}</h1><br>
+    
+    <form action="/userbooking/{{userID}}" method="post">
+        {% for theater in movieData.current_theaters %}
+            <label ><h4 style="display: inline-block;">{{ theater.name }} {{ theater.location }}</h4></label>
+            <input type="radio"  name="booking" value="{{movieData.id}},{{ theater.id }}" required><br>
+        {% endfor %}
+        <input type="submit" value="Book">
+    </form>  
 </body>
 </html>

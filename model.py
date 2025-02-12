@@ -11,6 +11,12 @@ class user(db.Model):
     password = db.Column(db.String)
     user_type = db.Column(db.String)
 
+class booking(db.Model):
+    __tablename__ = 'booking'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id    = db.Column(db.Integer)
+    movie_id   = db.Column(db.Integer)
+    theater_id = db.Column(db.Integer)
 
 class movie(db.Model):
     __tablename__ = 'movie'
@@ -27,6 +33,7 @@ class movie_theater(db.Model):
     __tablename__ = 'movie_theater'
     m_id=db.Column(db.Integer, db.ForeignKey('movie.id'), primary_key=True)
     t_id=db.Column(db.Integer, db.ForeignKey('theaters.id'), primary_key=True)
+
 
 class theaters(db.Model):
     __tablename__ = 'theaters'
