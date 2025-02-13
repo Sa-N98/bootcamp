@@ -3,21 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="\static\css\userDashbord.css">
-    <title>Document</title>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/static/css/userDashbord.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="/userbooking/{{userID}}" style="float: right; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">My Bookings</a>
-    <h1>Welcome User {{ userName }}</h1>
 
-    <form action="/search" method="post">
-        <input type="text" name="search" placeholder="Search" id="search_bar">
-        <input type="submit" value="Find">
-    </form>
+    <!-- Navigation -->
+    <nav>
+        <a href="/userbooking/{{userID}}" class="btn-bookings">My Bookings</a>
+    </nav>
 
-    {% for movie in movieData %}
-     <a href="/movie_details//{{userID}}/{{ movie.id }}">  <div class="card" style="background-image: url({{movie.poster_url}});"></div> </a>
-    {% endfor %}
+    <!-- Welcome Message -->
+    <header>
+        <h1>Welcome, {{ userName }}!</h1>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="search-container">
+        <form action="/search" method="post">
+            <div class="search-box">
+                <input type="text" name="search" placeholder="Search movies..." id="search_bar" aria-label="Search movies">
+                <input type="submit" value="Find">
+            </div>
+        </form>
+    </section>
+
+    <!-- Movie Cards -->
+    <section class="movies-container">
+        {% for movie in movieData %}
+        <a href="/movie_details/{{userID}}/{{ movie.id }}" class="movie-link">
+            <div class="card" style="background-image: url('{{movie.poster_url}}');" aria-label="Movie Poster">
+            </div>
+        </a>
+        {% endfor %}
+    </section>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request , redirect, url_for
+from flask import Flask, render_template, request , redirect, url_for 
 from model import *
 import os
 
@@ -96,6 +96,11 @@ def userbooking(USER_ID):
     return render_template('mybooking.html', userID = USER_ID , bookingData = user_booking)
 
 
+@app.route('/userbooking_delete/<BOOKING_ID>', methods=['GET', 'POST'])
+def userbooking_delete(BOOKING_ID):
+    booking.query.filter(booking.id == BOOKING_ID).delete()
+    db.session.commit()
+    return "Booking Deleted"
 
 
 

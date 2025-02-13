@@ -3,14 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .table-container {
+            width: 60%;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        input[type="submit"] {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e60000;
+        }
+
+        @media (max-width: 768px) {
+            .table-container {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Title  Name </h1><br> 
-    {% for i in range(1)%}
-    
-    {% endfor %}
+    <h1>Movie Bookings</h1>
 
-    {{ bookingData }}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Movie</th>
+                    <th>Theater</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in bookingData %}
+                <tr>
+                    <td>{{ bookingData[i][0] }}</td>
+                    <td>{{ bookingData[i][1] }}</td>
+                    <td>
+                        <form action="/userbooking_delete/{{i}}" method="post">
+                            <input type="submit" value="Cancel">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 </body>
 </html>
